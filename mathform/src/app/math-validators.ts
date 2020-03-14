@@ -1,0 +1,20 @@
+import { AbstractControl } from "@angular/forms";
+
+export class MathValidators {
+  counter = 1;
+
+  static addtion(target: string, sourceOne: string, sourceTwo: string) {
+    return (form: AbstractControl) => {
+      // const { firstValue, secondValue, answer } = form.value;
+      const sum = form.value[target];
+      const firstNumber = form.value[sourceOne];
+      const secondNumber = form.value[sourceTwo];
+
+      if (firstNumber + secondNumber === parseInt(sum)) {
+        return null;
+      }
+
+      return { addition: true };
+    };
+  }
+}
